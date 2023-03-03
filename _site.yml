@@ -1,0 +1,23 @@
+name: 
+author: Biplabendu Das
+output_dir: docs
+output:
+  html_document:
+    remote_theme: "mmistakes/minimal-mistakes"
+    lib_dir: site_libs
+    self_contained: no
+navbar:
+  title: Estrella da Boss
+  left:
+  - text: Home
+    href: index.html
+    icon: fa-home
+  - text: Research
+    href: research.html
+    icon: fa-flask
+  right:
+  - icon: fa-twitter
+    href: https://twitter.com/another_ant_guy
+    align: right
+  - { icon: "fa-linkedin", href: "https://www.linkedin.com/in/biplabendu/", align: right }
+  - { icon: "fa-facebook", href: "https://www.facebook.com/biplabendu", align: right }

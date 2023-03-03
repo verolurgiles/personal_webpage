@@ -1,0 +1,40 @@
+---
+title: "Welcome Hooman"
+output: 
+  html_document:
+    theme: yeti
+---
+
+
+```{r, echo=F, warning=F, message=F}
+library(rmarkdown)
+library(knitr)
+library(jpeg)
+```
+
+
+###
+
+```{r, echo=FALSE, fig.cap="Hi! I am Estrella.", out.width = '30%', fig.align='center'}
+knitr::include_graphics("my_smiling_face_here.jpg")
+```
+   
+<h6 style="text-align: center;" markdown="1">
+
+Email: da_boss_estrella [at] hotmail [dot] com
+
+</h6>     
+
+I am a budding biolgist always curious about human behavior, especially the temporal patterns in which hoomans do and do not provide food. You can find out more about my day to day activities from some of my hooman friends, such as [Biplabendu Das](https://biplabendu.github.io/homepage/).
+
+
+----------------------------------
+
+## Publications, Tutorials, Talks
+
+##
+
+2. _**Das, B.**, Brouns, R., Will, I., Brachmann, A., de Bekker, C. (2023)_ Using RNASeq to investigate the involvement of the _Ophiocordyceps_ clock in ant host infection and behavioral manipulation. _bioRxiv_ [*PDF*](https://www.biorxiv.org/content/10.1101/2023.01.20.524843v2.abstract)
+
+
+1. _**Das, B.**, Brachmann, A., de Bekker, C. (2023)_ Both behavior-manipulating and non-manipulating entomopathogenic fungi affect rhythmic gene expression in carpenter ant foragers upon infection. _bioRxiv_ [*PDF*](https://www.biorxiv.org/content/10.1101/2023.01.19.524837v2.abstract)
