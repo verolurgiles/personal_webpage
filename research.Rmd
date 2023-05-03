@@ -9,6 +9,10 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load(knitr)
+
 knitr::opts_chunk$set(echo = F)
 knitr::opts_chunk$set(warning = F)
 knitr::opts_chunk$set(message = F)
