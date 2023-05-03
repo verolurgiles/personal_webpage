@@ -522,11 +522,18 @@ GitHub Desktop after cloning is successful
 </div>
 <div id="customizing-the-homepage" class="section level3">
 <h3>2.1 Customizing the homepage</h3>
+<p>We will use Markdown and R to modify our html pages; each html has an associated <code>.Rmd</code> file</p>
 <blockquote>
-<p>We will use Markdown and R to modify our htmls; each html has an associated <code>.RMarkdown</code> file</p>
+<p>To be able to follow along for the next two sections, you will need to have R and RStudio installed on your computer. If you do not have them installed already, you can find instructions on how to install R and RStudio <a href="https://rstudio-education.github.io/hopr/starting.html">here</a>.</p>
 </blockquote>
+<ol style="list-style-type: decimal">
+<li><p>Open the folder in your computer that contains the repository files</p></li>
+<li><p>Open the <code>my_dummy_website.Rproj</code> file which will open RStudio.</p></li>
+<li><p>Now, open the <code>index.Rmd</code> file either within RStudio or from your local folder.</p></li>
+<li><p>We will now modify the markdown file.</p></li>
+</ol>
 <ul>
-<li>the header</li>
+<li>the <code>.Rmd</code> header</li>
 <li>Making hierarchical sections and table of contents</li>
 <li>Highlighting and styling</li>
 <li>Hyperlink</li>
@@ -536,11 +543,24 @@ GitHub Desktop after cloning is successful
 </div>
 <div id="addingremoving-webpages" class="section level3">
 <h3>2.2 Adding/Removing webpages</h3>
+<ol style="list-style-type: decimal">
+<li><p>Create a new <code>.Rmd</code> file, add content, and generate a html</p>
 <ul>
-<li>Create a new <code>.RMarkdown</code> file, and generate a html</li>
-<li>Customizing the <code>_site.yml</code> file to add/remove a webpage</li>
-<li>Check a local copy of the website to make sure everything looks good</li>
-</ul>
+<li>For fun, we will do some anlayses on simulated data</li>
+<li>Make two plots</li>
+<li>Embed a table</li>
+<li>Generate a html page</li>
+</ul></li>
+<li><p>Customizing the <code>_site.yml</code> file to add/remove a webpage</p>
+<ul>
+<li>Add two new tabs in the navigation bar</li>
+<li>Connect one new tab to the newly generated html</li>
+<li>Connect the other tab to your resume</li>
+<li>Save the _site.yml file</li>
+<li>Re-create all the html files</li>
+</ul></li>
+<li><p>Check a local copy of the website to make sure everything looks good</p></li>
+</ol>
 <hr />
 </div>
 </div>
@@ -564,7 +584,15 @@ Push changes to GitHub
 </ul></li>
 </ul>
 <blockquote>
-<p>That’s it, you are done! Your website will be automatically modified and re-deployed in a couple of minutes (usually less than &lt;5 mins, but depends on the size of your website and amount of changes)</p>
+<p>That’s it, you are done!</p>
+</blockquote>
+<p>Your website will be automatically modified and re-deployed in a couple of minutes (usually less than &lt;5 mins, but depends on the size of your website and amount of changes)</p>
+</div>
+<div id="further-reading" class="section level2">
+<h2>Further reading</h2>
+<p>For more inspiration on customizing the html output, refer to the following manual:</p>
+<blockquote>
+<p><a href="https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents" class="uri">https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents</a></p>
 </blockquote>
 </div>
 

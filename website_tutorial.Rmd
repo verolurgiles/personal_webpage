@@ -134,20 +134,46 @@ knitr::include_graphics("./images/06.png")
 
 ### 2.1 Customizing the homepage
 
-> We will use Markdown and R to modify our htmls; each html has an associated `.RMarkdown` file
+We will use Markdown and R to modify our html pages; each html has an associated `.Rmd` file
 
-- the header
+> To be able to follow along for the next two sections, you will need to have R and RStudio installed on your computer. If you do not have them installed already, you can find instructions on how to install R and RStudio [here](https://rstudio-education.github.io/hopr/starting.html).
+
+1. Open the folder in your computer that contains the repository files
+
+2. Open the `my_dummy_website.Rproj` file which will open RStudio.
+
+3. Now, open the `index.Rmd` file either within RStudio or from your local folder.
+
+4. We will now modify the markdown file.
+
+
+- the `.Rmd` header
 - Making hierarchical sections and table of contents
 - Highlighting and styling
 - Hyperlink
 - Pictures and Videos
 - create updated html
 
+
 ### 2.2 Adding/Removing webpages
 
-- Create a new `.RMarkdown` file, and generate a html
-- Customizing the `_site.yml` file to add/remove a webpage
-- Check a local copy of the website to make sure everything looks good
+1. Create a new `.Rmd` file, add content, and generate a html
+
+    - For fun, we will do some anlayses on simulated data
+    - Make two plots
+    - Embed a table
+    - Generate a html page
+
+2. Customizing the `_site.yml` file to add/remove a webpage
+
+
+    - Add two new tabs in the navigation bar
+    - Connect one new tab to the newly generated html
+    - Connect the other tab to your resume
+    - Save the _site.yml file
+    - Re-create all the html files
+
+3. Check a local copy of the website to make sure everything looks good
 
 ___
 
@@ -166,7 +192,15 @@ knitr::include_graphics("./images/99.png")
     - click `Commit to main`
     - click `Push Origin`
     
-> That's it, you are done! Your website will be automatically modified and re-deployed in a couple of minutes (usually less than <5 mins, but depends on the size of your website and amount of changes)
+> That's it, you are done! 
+
+Your website will be automatically modified and re-deployed in a couple of minutes (usually less than <5 mins, but depends on the size of your website and amount of changes)
 
 
+
+## Further reading
+
+For more inspiration on customizing the html output, refer to the following manual:
+
+> https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents
 
