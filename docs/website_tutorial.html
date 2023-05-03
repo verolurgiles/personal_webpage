@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Biplabendu Das" />
+
+
+<title>A tutorial for building and deploying websites using RMarkdown and GitHub</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Estrella da Boss</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="research.html">
+    <span class="fa fa-flask"></span>
+     
+    Research
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="https://twitter.com/another_ant_guy">
+    <span class="fa fa-twitter"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.linkedin.com/in/biplabendu/">
+    <span class="fa fa-linkedin"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://www.facebook.com/biplabendu">
+    <span class="fa fa-facebook"></span>
+     
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
+
+
+<h1 class="title toc-ignore">A tutorial for building and deploying websites using RMarkdown and GitHub</h1>
+<h4 class="author">Biplabendu Das</h4>
+<h4 class="date">03 May, 2023</h4>
+
+</div>
+
+
+<style>
+body {text-align: left}
+</style>
+<hr />
+<p>This tutorial shows how to deploy a website, hosted on GitHub Pages for free, using RMarkdown.</p>
+<p>To make the process highly accessible, I have created a dummy website that provides a template for building a professional website with two pages: a homepage and a webpage for describing your research experience. The template can be customized for your needs by renaming and repurposing the individual pages.</p>
+<p>The process can be broken down to three steps:</p>
+<ol style="list-style-type: decimal">
+<li>Make a copy of the website on your GitHub, and deploy it on GitHub Pages.</li>
+<li>Change the style and content of your html webpages using RMarkdown on your local computer.</li>
+<li>Update your online website by pushing the local changes to GitHub.</li>
+</ol>
+<blockquote>
+<p>Every time you make any local changes to your website (Step 2), you need to use step 3 to update it on the web.</p>
+</blockquote>
+<div id="step-1-deploy-website" class="section level2">
+<h2>Step 1: Deploy website</h2>
+<div id="clone-the-template" class="section level3">
+<h3>1.1 Clone the template</h3>
+<p>We will make a copy of the dummy website by <code>forking</code> the repository on GitHub. So, the first thing we need is a registered GitHub account. If you do not have a GitHub account, use the following guidelines to do so:</p>
+<ol style="list-style-type: decimal">
+<li>Go to Github and register an account by providing the following information.</li>
+</ol>
+<ul>
+<li>email: your_email_id</li>
+<li>password: your_password</li>
+<li>user name: your_user_name <strong>Pick your username carefully</strong></li>
+</ul>
+<blockquote>
+<p>The address of your website will be <a href="https://your_user_name.github.io/your_project_name" class="uri">https://your_user_name.github.io/your_project_name</a></p>
+</blockquote>
+<blockquote>
+<p>For example, my user name is biplabendu and my website is deployed as: <a href="https://biplabendu.github.io/homepage" class="uri">https://biplabendu.github.io/homepage</a></p>
+</blockquote>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Go to the GitHub repository for the dummy website: <a href="https://github.com/biplabendu/my_dummy_website">here</a></p></li>
+<li><p>Click the <code>Fork</code> button on the top-right of the repository, which opens a setup page where you can customize the name of your repository.</p></li>
+<li><p>The name of the repository will be the default name in your website link (see above). Pick something that you like. I will change it to “homepage”. Make sure “Copy the main branch only” is checked. Click “Create fork”.</p></li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/01.png" alt="Creating a fork." width="85%" />
+<p class="caption">
+Creating a fork.
+</p>
+</div>
+</div>
+<div id="deploy-the-website" class="section level3">
+<h3>1.2 Deploy the website</h3>
+<ol style="list-style-type: decimal">
+<li><p>Go to <code>Settings</code>. If you have not changed the name of your repository, I would recommend you do it at this step.</p></li>
+<li><p>Select <code>Pages</code> in the <code>Code and automation</code> section on the left navigation pane.</p></li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/02.png" alt="Setup GitHub Pages." width="85%" />
+<p class="caption">
+Setup GitHub Pages.
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Check that <code>Source</code> is selected as <code>Deploy from a branch</code>. Select <code>Branch</code> as <code>main</code>, which should automatically select <code>/(root)</code> as the subfolder. Change <code>/(root)</code> to <code>/docs</code> because our html files are not in the folder called <code>docs</code>. If all looks good, select <code>Save</code>.</li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/03.png" alt="Deploy website" width="85%" />
+<p class="caption">
+Deploy website
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>That’s it, your website is being created and deployed. If you do not see a link for your website at the top of the <code>Pages</code>, please give it a minute and refresh. This might take a couple of minutes.</p></li>
+<li><p>Once your link is ready, click on it and see if it worked. You should arrive at a website with your custom user name and repository name, which looks like below.</p></li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/04.png" alt="Dummy website template." width="85%" />
+<p class="caption">
+Dummy website template.
+</p>
+</div>
+<hr />
+</div>
+</div>
+<div id="step-2-making-modifications" class="section level2">
+<h2>Step 2: Making modifications</h2>
+<div id="linking-github-and-rstudio" class="section level3">
+<h3>2.1 Linking GitHub and RStudio</h3>
+<ol style="list-style-type: decimal">
+<li><p>Get a copy of the repository on your local computer using GitHub Desktop. If you don’t have it installed on your computer, you can do iter by visiting <a href="https://desktop.github.com/">this website</a>.</p></li>
+<li><p>Open GitHub Desktop and sign in to your account. You might have to allow authorization by clicking the <code>signing in on the web</code> option on your login screen.</p></li>
+<li><p>While keeping GitHub Desktop open, click on <code>File</code> -&gt; <code>Clone repository</code>.</p></li>
+<li><p>A new window opens where you should see your newly created repository. See below.</p></li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/05.png" alt="Create a local clone of your repository" width="85%" />
+<p class="caption">
+Create a local clone of your repository
+</p>
+</div>
+<ol start="5" style="list-style-type: decimal">
+<li><p>Click on the repository with <code>your_user_name/your_repository_name</code>, and select a path on your folder where the cloned repository will be saved. Click <code>Clone</code>.</p></li>
+<li><p>If everything works fine, your GitHub Desktop should look like below:</p></li>
+</ol>
+<div class="figure" style="text-align: center">
+<img src="images/06.png" alt="GitHub Desktop after cloning is successful" width="85%" />
+<p class="caption">
+GitHub Desktop after cloning is successful
+</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li>There are two ways to access the files of your repository:</li>
+</ol>
+<ul>
+<li>While on GitHub Desktop, click on the button <code>View the files of your repository in XXXX</code> to open the folder.</li>
+<li>[Preferred way] Create a dedicated folder for all your GitHub repo for easy access and navigation.</li>
+</ul>
+</div>
+<div id="customizing-the-homepage" class="section level3">
+<h3>2.1 Customizing the homepage</h3>
+<blockquote>
+<p>We will use Markdown and R to modify our htmls; each html has an associated <code>.RMarkdown</code> file</p>
+</blockquote>
+<ul>
+<li>the header</li>
+<li>Making hierarchical sections and table of contents</li>
+<li>Highlighting and styling</li>
+<li>Hyperlink</li>
+<li>Pictures and Videos</li>
+<li>create updated html</li>
+</ul>
+</div>
+<div id="addingremoving-webpages" class="section level3">
+<h3>2.2 Adding/Removing webpages</h3>
+<ul>
+<li>Create a new <code>.RMarkdown</code> file, and generate a html</li>
+<li>Customizing the <code>_site.yml</code> file to add/remove a webpage</li>
+<li>Check a local copy of the website to make sure everything looks good</li>
+</ul>
+<hr />
+</div>
+</div>
+<div id="step-3-updating-website" class="section level2">
+<h2>Step 3: Updating website</h2>
+<ul>
+<li>Go to GitHub Desktop on your computer, and select <code>Current Repository</code> (top-left corner) to <code>your_repository_name</code> (for me, it’s called <code>homepage</code>)</li>
+<li>Select all the changes that you want to push, and write a brief <code>Summary</code> (required) of what the changes were. For example, since we added a new page, we can write, <code>added a new webpage</code>. You can provide more detailed description of the changes in the field below that says <code>Description</code>.</li>
+</ul>
+<div class="figure" style="text-align: center">
+<img src="images/99.png" alt="Push changes to GitHub" width="85%" />
+<p class="caption">
+Push changes to GitHub
+</p>
+</div>
+<ul>
+<li>Once you are happy with your comments (remember, you are helping future you, so be generous with your descriptions), do the following in the specified order:
+<ul>
+<li>click <code>Commit to main</code></li>
+<li>click <code>Push Origin</code></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>That’s it, you are done! Your website will be automatically modified and re-deployed in a couple of minutes (usually less than &lt;5 mins, but depends on the size of your website and amount of changes)</p>
+</blockquote>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
