@@ -9,11 +9,9 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = F)
 knitr::opts_chunk$set(warning = F)
 knitr::opts_chunk$set(message = F)
-## For more inspiration on customizing the html output, refer to the following:
-# https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents
 ```
 
 
@@ -33,7 +31,7 @@ Hoomans love their food, and I love to qualitatively assess the variation across
 
 I remember that one time, when my two favorite hoomans and I were driving from Florida to Arizona. On a sunny day in the middle of nowhere in Florida was nestled this beautiful, rustic town. This was the moment when I first met Arby's. What a beautiful day it was!
 
-```{r, echo=FALSE, fig.cap="Me and Arbys.", out.width = '50%', fig.align='center'}
+```{r, fig.cap="Me and Arbys.", out.width = '50%', fig.align='center'}
 knitr::include_graphics("me_doing_stuff.jpg")
 ```
    
