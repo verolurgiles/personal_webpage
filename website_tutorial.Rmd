@@ -40,10 +40,20 @@ The process can be broken down to three steps:
 2. Change the style and content of your html webpages using RMarkdown on your local computer.
 3. Update your online website by pushing the local changes to GitHub.
 
-> Every time you make any local changes to your website (Step 2), you need to use step 3 to update it on the web.
+> Note, every time you make any local changes to your website (Step 2), you need to use step 3 to update it on the web.
 
+___
+
+## Video tutorial
+
+The following video is a recording from the workshop I hosted on May 3rd, 2023 for my lab group. Sadly, some parts of the video is blocked by giant faces, but you should be able to follow along by combining the video tutorial with the step-by-step instructions provided in this document.
+
+<iframe width="500" height="315" src="https://www.youtube.com/embed/v6OhIfecNS4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+___
 
 ## Step 1: Deploy website
+
 
 ### 1.1 Clone the template
 
