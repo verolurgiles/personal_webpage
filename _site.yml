@@ -3,7 +3,7 @@ author: Biplabendu Das
 output_dir: docs
 output:
   html_document:
-    remote_theme: "mmistakes/minimal-mistakes"
+    # remote_theme: "mmistakes/minimal-mistakes"
     # lib_dir: site_libs
     self_contained: yes
     keep_md: no
