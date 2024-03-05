@@ -1,5 +1,5 @@
 ---
-title: "Welcome Hooman"
+title: "Welcome Biliiiiiiii"
 output:
   html_document:
     toc: no
@@ -31,11 +31,13 @@ I am a budding biolgist always curious about human behavior, especially the temp
 
 ## Publications, Tutorials, Talks
 
-<!-- <script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script> -->
+[paper_1](https://scholar.google.com/citations?user=nvjFNZ8AAAAJ&hl=es)
+
+<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>
 
 ##
 
 2. _**Das, B.**, Brouns, R., Will, I., Brachmann, A., de Bekker, C. (2023)_ Using RNASeq to investigate the involvement of the _Ophiocordyceps_ clock in ant host infection and behavioral manipulation. _bioRxiv_ [*PDF*](https://www.biorxiv.org/content/10.1101/2023.01.20.524843v2.abstract)
-<!-- <div class='altmetric-embed' data-badge-popover="right" data-badge-type='medium-bar' data-doi="10.1101/2023.01.20.524843"></div> -->
+<div class='altmetric-embed' data-badge-popover="right" data-badge-type='medium-bar' data-doi="10.1101/2023.01.20.524843"></div>
 
 1. _**Das, B.**, Brachmann, A., de Bekker, C. (2023)_ Both behavior-manipulating and non-manipulating entomopathogenic fungi affect rhythmic gene expression in carpenter ant foragers upon infection. _bioRxiv_ [*PDF*](https://www.biorxiv.org/content/10.1101/2023.01.19.524837v2.abstract)
